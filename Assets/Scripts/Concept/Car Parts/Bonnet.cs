@@ -12,25 +12,18 @@ namespace DefaultNamespace.Concept
             if(m_CarPart.Part != null) OriginalRotation = m_CarPart.Part.transform.rotation.eulerAngles;
         }
 
-        public override void Animate(bool stopExistingTween)
+        protected override LTDescr PlayAnimateTween()
         {
-            base.Animate(stopExistingTween);
-
-            // Rotate 45 Degrees around Y-axis.
-            if (m_CarPart.Part != null) TweenID = LeanTween.rotateX(m_CarPart.Part, Rotation.x, Time).setOnComplete(HandleComplete).id;
-        }
-
-        public override void Reset()
-        {
-            base.Reset();
+            if(m_CarPart.Part == null) return null;
             
-            // Rotate to it's default around Y-axis.
-            if (m_CarPart.Part != null) TweenID = LeanTween.rotateX(m_CarPart.Part, OriginalRotation.x, Time).setOnComplete(HandleComplete).id;
+            return LeanTween.rotateLocal(m_CarPart.Part, Rotation, Time);
         }
 
-        private void HandleComplete()
+        protected override LTDescr PlayResetTween()
         {
-            IsAnimating = false;
+            if(m_CarPart.Part == null) return null;
+            
+            return  LeanTween.rotateLocal(m_CarPart.Part, OriginalPosition, Time);
         }
     }
 }

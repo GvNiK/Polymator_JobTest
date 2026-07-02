@@ -24,7 +24,7 @@ namespace DefaultNamespace.Concept.Managers
             {
                 //Bonnet bonnet = m_TweenObjects.GetValue(0) as Bonnet;
                 
-                if(m_IsBonnetOpen) m_Bonnet.Reset();
+                if(m_IsBonnetOpen) m_Bonnet.Revert();
                 else m_Bonnet.Animate(true);
                 
                 m_IsBonnetOpen = !m_IsBonnetOpen;
@@ -35,7 +35,7 @@ namespace DefaultNamespace.Concept.Managers
         {
             if (m_Trunk != null)
             {
-                if(m_IsTrunkOpen) m_Trunk.Reset();
+                if(m_IsTrunkOpen) m_Trunk.Revert();
                 else m_Trunk.Animate(true);
                 
                 m_IsTrunkOpen = !m_IsTrunkOpen;
@@ -52,7 +52,7 @@ namespace DefaultNamespace.Concept.Managers
         {
             if (m_Tyres != null)
             {
-                if(m_IsEngineOn) m_Tyres.Reset();
+                if(m_IsEngineOn) m_Tyres.Revert();
                 else m_Tyres.Animate(true);
                 
                 m_IsEngineOn = !m_IsEngineOn;
@@ -63,7 +63,7 @@ namespace DefaultNamespace.Concept.Managers
         {
             if (m_LeftDoor != null)
             {
-                if(m_IsLeftDoorOpen) m_LeftDoor.Reset();
+                if(m_IsLeftDoorOpen) m_LeftDoor.Revert();
                 else m_LeftDoor.Animate(true);
                 
                 m_IsLeftDoorOpen = !m_IsLeftDoorOpen;
@@ -74,7 +74,7 @@ namespace DefaultNamespace.Concept.Managers
         {
             if (m_RightDoor != null)
             {
-                if(m_IsRightDoorOpen) m_RightDoor.Reset();
+                if(m_IsRightDoorOpen) m_RightDoor.Revert();
                 else m_RightDoor.Animate(true);
                 
                 m_IsRightDoorOpen = !m_IsRightDoorOpen;

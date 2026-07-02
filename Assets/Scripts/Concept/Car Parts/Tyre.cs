@@ -6,6 +6,10 @@ namespace DefaultNamespace.Concept
     {
         [SerializeField] private CarPart[] m_CarPart = new CarPart[4];
 
+        protected override LTDescr PlayAnimateTween() => null;
+
+        protected override LTDescr PlayResetTween() => null;
+
         public override void Animate(bool stopExistingTween)
         {
             stopExistingTween = true;
@@ -22,9 +26,9 @@ namespace DefaultNamespace.Concept
             }
         }
 
-        public override void Reset()
+        public override void Revert()
         {
-            base.Reset();
+            base.Revert();
 
             foreach (CarPart part in m_CarPart)
             {

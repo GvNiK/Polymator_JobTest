@@ -10,24 +10,19 @@ namespace DefaultNamespace.Concept
         {
             if(m_CarPart.Part != null) OriginalRotation = m_CarPart.Part.transform.rotation.eulerAngles;
         }
-        
-        public override void Animate(bool stopExistingTween)
-        {
-            base.Animate(stopExistingTween);
 
-            if (m_CarPart.Part != null) TweenID = LeanTween.rotateLocal(m_CarPart.Part, Rotation, Time).setOnComplete(HandleComplete).id;
+        protected override LTDescr PlayAnimateTween()
+        {
+            if(m_CarPart.Part == null) return null;
+            
+            return LeanTween.rotateLocal(m_CarPart.Part, Rotation, Time);
         }
 
-        public override void Reset()
+        protected override LTDescr PlayResetTween()
         {
-            base.Reset();
-
-            if (m_CarPart.Part != null) TweenID = LeanTween.rotateLocal(m_CarPart.Part, OriginalRotation, Time).setOnComplete(HandleComplete).id;
-        }
-
-        private void HandleComplete()
-        {
-            IsAnimating = false;
+            if(m_CarPart.Part == null) return null;
+            
+            return  LeanTween.rotateLocal(m_CarPart.Part, OriginalPosition, Time);
         }
     }
 }
